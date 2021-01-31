@@ -25,7 +25,7 @@ class Tagger():
         processed_text = self._preprocess_punctuation(input_text)
         tokenized_text = self._tokenize_text(processed_text)
         predicted_labels = self._generate_prediction(tokenized_text)
-        return [self.id_to_tag[id] for id in predicted_labels]
+        return (tokenized_text, [self.id_to_tag[id] for id in predicted_labels])
 
     def _preprocess_punctuation(self, text):
         text = text.replace('...', '.')
